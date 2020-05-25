@@ -34,3 +34,18 @@ Training and test splits are created using `./datasets/create_dataset.py`. 40 gr
 I have added a Jupyter notebook to show some interesting observations. We simplify our model to single layer and train it rank nodes based on degree centrality. We see that the trained model can easily rank the nodes similar to degree centrality in new different types of graphs without being provided any explicit information. In current literature, it has already been discussed that the Graph Neural Networks (GNN) may learn to distinguish the node degree. Hence, these observations are not discussed in the paper. But we show it experimentally here.
 
  In short, the model is able to rank nodes in the graph corresponding to **degree centrality**, **betweenness centrality** and **closeness centrality**.
+
+ 
+**Note (PyTorch 1.0 or higher)**:  
+This code was written and tested on PyTorch (0.4.1), so it has some incompatibilities with newer versions. With PyTorch versions (1.0 or higher), this code may give inconsistence performance. This is because of some of the changes in newer versions cause problems with this code. One reason is dropout not acting as intended in the code (See [https://discuss.pytorch.org/t/moving-from-pytorch-0-4-1-to-1-0-changes-model-output/41760/3](https://discuss.pytorch.org/t/moving-from-pytorch-0-4-1-to-1-0-changes-model-output/41760/3)).
+For example, changing the dropout code (at two locations) in MLP layer in `layer.py`,
+```
+score_temp = F.dropout(score_temp,self.dropout)
+```
+to (for newer PyTorch versions)
+```
+score_temp = F.dropout(score_temp,self.dropout,self.training)
+```
+improves the performance similar to original results. In addition to this fix, I found results varying a bit (between older and newer versions) even with same random seed. I will look into it and provide a patch for newer PyTorch versions.
+
+
