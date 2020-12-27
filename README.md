@@ -1,6 +1,6 @@
 # Code repository for GNN_Ranking
 
-This repository contains the code for our paper "Graph Neural Networks for Fast Node Ranking Approximation". This paper is an extension of our previous paper "[Fast Approximations of Betweenness Centrality using Graph Neural Networks](https://dl.acm.org/doi/10.1145/3357384.3358080)", which is accepted as a short research paper in CIKM 2019.
+This repository contains the code for our paper "Graph Neural Networks for Fast Node Ranking Approximation" accepted at ACM Transactions on Knowledge Discovery from Data(TKDD). This paper is an extension of our previous paper "[Fast Approximations of Betweenness Centrality using Graph Neural Networks](https://dl.acm.org/doi/10.1145/3357384.3358080)", which is accepted as a short research paper in CIKM 2019.
 In this paper, we extend our proposed framework to approximate both betweenness and closeness centrality for the directed graphs. Also, we demonstrate the usefulness of our framework in case of the dynamic graphs.
 
 Code is written in Python and the proposed model is implemented using Pytorch.
