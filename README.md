@@ -48,4 +48,7 @@ score_temp = F.dropout(score_temp,self.dropout,self.training)
 ```
 improves the performance similar to original results. In addition to this fix, I found results varying a bit (between older and newer versions) even with same random seed. I will look into it and provide a patch for newer PyTorch versions.
 
+**Note about package requirements**
+
+In case there are conflicts while installing the packages, please check the following [issue](https://github.com/sunilkmaurya/GNN_Ranking/issues/2) for matched versions of the packages. Thanks @natema for the information. 
 
